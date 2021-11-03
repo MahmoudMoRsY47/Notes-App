@@ -47,7 +47,7 @@ public abstract class WordRoomDb extends RoomDatabase {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            mWordsDao.insert(new Words("555", "Book", "noun"));
+            mWordsDao.insert(new Words("book", "Book", "noun"));
             mWordsDao.insert(new Words("book", "Book", "noun"));
             mWordsDao.insert(new Words("book", "Book", "noun"));
             return null;

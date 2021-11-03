@@ -16,12 +16,14 @@ public class AddNewWordActivity extends AppCompatActivity {
     private EditText wordedt;
     private EditText meanedt;
     private EditText typeedt;
+
     boolean editMood;
     private int mID;
     public static final String EXTRA_ID="com.example.notes extraid";
     public static final String EXTRA_WORD="com.example.notes word";
     public static final String EXTRA_MEANING="com.example.notes meaning";
-    public static final String EXTRA_TYPE="com.example.notes type";
+    public static final String EXTRA_TYPE = "com.example.wordlist.type";
+
 
     //view modelto add new word activity
     private AddNewWordViewModel mViewModel;
@@ -32,7 +34,8 @@ public class AddNewWordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_new_word);
         wordedt =findViewById(R.id.edt_word);
         meanedt =findViewById(R.id.edt_meaninig);
-        typeedt =findViewById(R.id.edt_type);
+        typeedt = findViewById(R.id.edt_type);
+
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_exit);
         Intent i = getIntent();
@@ -44,6 +47,7 @@ public class AddNewWordActivity extends AppCompatActivity {
             wordedt.setText(i.getStringExtra(EXTRA_WORD));
             meanedt.setText(i.getStringExtra(EXTRA_MEANING));
             typeedt.setText(i.getStringExtra(EXTRA_TYPE));
+
 
 
         }else {
@@ -79,9 +83,10 @@ public class AddNewWordActivity extends AppCompatActivity {
         String meaning = meanedt.getText().toString().trim();
         String type = typeedt.getText().toString().trim();
 
-        Words wordObject = new Words(word, meaning, type);
 
-        if (word.isEmpty() || type.isEmpty() || meaning.isEmpty()) {
+        Words wordObject = new Words(word, meaning,type);
+
+        if (word.isEmpty() || meaning.isEmpty() || type.isEmpty()) {
             Toast.makeText(AddNewWordActivity.this, "please fill all fields", Toast.LENGTH_LONG).show();
             return;
         }
